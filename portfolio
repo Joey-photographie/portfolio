@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Portfolio Photo</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      color: #aaa;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: #6a00ff;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+
+    /* EFFET VIOLET ANIMÉ */
+    @keyframes rotateBorder {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+
+      padding: 3px;
+      background: linear-gradient(90deg, #6a00ff, #b84dff, #6a00ff);
+      background-size: 200% 200%;
+      animation: rotateBorder 3s linear infinite;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #777;
+    }
+
+    /* PAGE CONTACT (cachée) */
+    #contact-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 2000;
+    }
+
+    #contact-page.active {
+      display: flex;
+    }
+
+    #contact-page a {
+      color: #b84dff;
+      text-decoration: none;
+    }
+
+    #contact-page a:hover {
+      text-decoration: underline;
+    }
+
+    /* LIGHTBOX */
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      z-index: 1000;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+
+    #lightbox.active {
+      display: flex;
+    }
+
+    #lightbox.active img {
+      transform: scale(1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Mon Portfolio Photo</h1>
+    <p>Photographie par Joey </p>
+
+    <div class="contact-btn" onclick="openContact()">Contact</div>
+  </header>
+
+  <section class="gallery">
+    <src="1000085839.jpg">
+    <src="1000085949.jpg">
+    <src="1000090766.jpg">
+    <src="1000090765.jpg">
+    <scr="1000090764.jpg">
+    <src="1000090124.jpg">
+    <src="1000089893.jpg">
+    <src="1000088999.jpg">
+    <src="1000090461.jpg">
+  </section>
+
+  <!-- PAGE CONTACT -->
+  <div id="contact-page">
+    <div>
+      <h1>Contact</h1>
+      <p>Merci d’avoir visité mon portfolio 🙏</p>
+<p>
+<a href="https://mail.google.com/mail/?view=cm&to=joey.photographe@gmail.com&su=Demande%20photo&body=Bonjour%20Joey," target="_blank" class="gmail-btn">
+  Contacter via Gmail
+</a>
+
+<style>
+.gmail-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 25px;
+  background: #6a00ff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+
+  /* glow léger */
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+}
+
+.gmail-btn:hover {
+  transform: scale(1.05);
+  background: #7d1fff;
+
+  /* glow un peu plus fort au hover */
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+}
+</style>
+
+</p>
+      <p>Instagram :
+        <a href="https://www.instagram.com/j0ey.67/" target="_blank">@j0ey.67</a>
+      </p>
+
+      <p><a href="#" onclick="closeContact()">← Retour</a></p>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <img id="lightbox-img">
+  </div>
+
+  <footer>
+    <p>© 2026 - Portfolio de Joey</p>
+  </footer>
+
+  <script>
+    const images = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        lightbox.classList.remove("active");
+      }
+    });
+
+    // CONTACT
+    function openContact() {
+      document.getElementById("contact-page").classList.add("active");
+    }
+
+    function closeContact() {
+      document.getElementById("contact-page").classList.remove("active");
+    }
+  </script>
+
+</body>
+</html>
