@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -46,7 +46,6 @@
       padding: 10px;
     }
 
-    /* EFFET VIOLET ANIMÉ */
     @keyframes rotateBorder {
       0% { background-position: 0% 50%; }
       100% { background-position: 200% 50%; }
@@ -77,7 +76,6 @@
       color: #777;
     }
 
-    /* PAGE CONTACT (cachée) */
     #contact-page {
       position: fixed;
       top: 0;
@@ -105,7 +103,6 @@
       text-decoration: underline;
     }
 
-    /* LIGHTBOX */
     #lightbox {
       position: fixed;
       top: 0;
@@ -113,11 +110,9 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.9);
-
       display: none;
       justify-content: center;
       align-items: center;
-
       z-index: 1000;
     }
 
@@ -125,7 +120,6 @@
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
-
       transform: scale(0.8);
       transition: transform 0.3s ease;
     }
@@ -150,52 +144,48 @@
   </header>
 
   <section class="gallery">
-    <src="1000085839.jpg">
-    <src="1000085949.jpg">
-    <src="1000090766.jpg">
-    <src="1000090765.jpg">
-    <scr="1000090764.jpg">
-    <src="1000090124.jpg">
-    <src="1000089893.jpg">
-    <src="1000088999.jpg">
-    <src="1000090461.jpg">
+    <img src="1000085839.jpg">
+    <img src="1000085949.jpg">
+    <img src="1000090766.jpg">
+    <img src="1000090765.jpg">
+    <img src="1000090764.jpg">
+    <img src="1000090124.jpg">
+    <img src="1000089893.jpg">
+    <img src="1000088999.jpg">
+    <img src="1000090461.jpg">
   </section>
 
-  <!-- PAGE CONTACT -->
   <div id="contact-page">
     <div>
       <h1>Contact</h1>
       <p>Merci d’avoir visité mon portfolio 🙏</p>
-<p>
-<a href="https://mail.google.com/mail/?view=cm&to=joey.photographe@gmail.com&su=Demande%20photo&body=Bonjour%20Joey," target="_blank" class="gmail-btn">
-  Contacter via Gmail
-</a>
 
-<style>
-.gmail-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  border-radius: 25px;
-  background: #6a00ff;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+      <p>
+        <a href="https://mail.google.com/mail/?view=cm&to=joey.photographe@gmail.com&su=Demande%20photo&body=Bonjour%20Joey," target="_blank" class="gmail-btn">
+          Contacter via Gmail
+        </a>
 
-  /* glow léger */
-  box-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
-}
+        <style>
+        .gmail-btn {
+          display: inline-block;
+          padding: 12px 20px;
+          border-radius: 25px;
+          background: #6a00ff;
+          color: #fff;
+          text-decoration: none;
+          font-weight: bold;
+          transition: 0.3s;
+          box-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+        }
 
-.gmail-btn:hover {
-  transform: scale(1.05);
-  background: #7d1fff;
+        .gmail-btn:hover {
+          transform: scale(1.05);
+          background: #7d1fff;
+          box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+        }
+        </style>
+      </p>
 
-  /* glow un peu plus fort au hover */
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
-}
-</style>
-
-</p>
       <p>Instagram :
         <a href="https://www.instagram.com/j0ey.67/" target="_blank">@j0ey.67</a>
       </p>
@@ -204,7 +194,6 @@
     </div>
   </div>
 
-  <!-- LIGHTBOX -->
   <div id="lightbox">
     <img id="lightbox-img">
   </div>
@@ -235,7 +224,6 @@
       }
     });
 
-    // CONTACT
     function openContact() {
       document.getElementById("contact-page").classList.add("active");
     }
